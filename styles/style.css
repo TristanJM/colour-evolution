@@ -1,18 +1,59 @@
 /* GENERIC CSS */
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font:15px 'Maven Pro', 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
-
 a {
   color: #00B7FF;
 }
 hr {
-	border: 1px solid rgba(200, 200, 200, 0.2);
+	border:1px solid rgba(200, 200, 200, 0.2);
+}
+#tagline {
+	font-size:18px;
 }
 
 
-/* EVOLUTION CSS */
+/* Header */
+.control-section {
+	display:inline-block;
+}
+.control-label, .control-element {
+	display: inline-block;
+}
+
+#sel-colourPalette {
+	border:0;
+	appearance:none;
+	-o-appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	padding:6px;
+	background:none;
+	font-size:15px;
+	border-radius:0;
+	border-bottom:2px solid aqua;
+}
+#sel-colourPalette:focus {
+	outline:none;
+}
+
+#btn-generate {
+	width:150px;
+	padding:15px;
+	margin:10px auto;
+	border-radius:10px;
+	border:3px solid aqua;
+	font-size:2.5em;
+	color:aqua;
+	text-align:center;
+	transition-duration:0.1s;
+	cursor:pointer;
+}
+#btn-generate:active {
+	background-color:rgba(200,200,200,0.1);
+}
+
 #pattern-container {
 	width:100%;
 }
@@ -27,25 +68,4 @@ hr {
 
 .control-panel {
 	margin:10px 0 20px 0;
-}
-#btn-generate {
-	margin-left:10px;
-}
-
-
-
-/* ANIMALS CSS */
-#map {
-	width:800px;
-	height:800px;
-	margin-left:auto;
-	margin-right:auto;
-	border:1px solid black;
-}
-
-.map-cell {
-	height:10px;
-	width:10px;
-	background-color:rgba(0,0,0,0.2);
-	display:inline-block;
 }
