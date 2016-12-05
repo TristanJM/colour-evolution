@@ -1,0 +1,51 @@
+/* GENERIC CSS */
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+hr {
+	border: 1px solid rgba(200, 200, 200, 0.2);
+}
+
+
+/* EVOLUTION CSS */
+#pattern-container {
+	width:100%;
+}
+.cell-row {
+	height:10px;
+}
+.cell {
+	width:1%;
+	height:10px;
+	display:inline-block;
+}
+
+.control-panel {
+	margin:10px 0 20px 0;
+}
+#btn-generate {
+	margin-left:10px;
+}
+
+
+
+/* ANIMALS CSS */
+#map {
+	width:800px;
+	height:800px;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid black;
+}
+
+.map-cell {
+	height:10px;
+	width:10px;
+	background-color:rgba(0,0,0,0.2);
+	display:inline-block;
+}

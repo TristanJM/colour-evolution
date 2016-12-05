@@ -2,10 +2,26 @@
 <html>
 	<head>
 		<title>Colour Evolution</title>
-		<link rel='stylesheet' href='/styles/style.css'>
+		<link rel='stylesheet' href='styles/style.css'>
+		<script src='scripts/script.js'></script>
 	</head>
 	
 	<body>
-	
+		<h1>evolution</h1>
+		<hr>
+		<br>
+		<p>each child inherits the colour of the 3 parents above</p>
+		
+		<div class='control-panel'>
+			<select id='sel-colourPalette'>
+				<option value='all'>All RGB</option>
+				<option value='primary'>Primary</option>
+				<option value='mono'>Black & White</option>
+			</select>
+			
+			<input id='btn-generate' type='button' value='Generate' onclick='javascript:generatePattern()'>
+		</div>
+		
+		<div id='pattern-container'></div>
 	</body>
 </html>
