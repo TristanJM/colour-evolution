@@ -1,7 +1,7 @@
 /* GENERIC CSS */
 body {
   padding: 50px;
-  font:15px 'Maven Pro', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font:17px 'Maven Pro', 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 a {
   color: #00B7FF;
@@ -10,13 +10,14 @@ hr {
 	border:1px solid rgba(200, 200, 200, 0.2);
 }
 #tagline {
-	font-size:18px;
+	font-size:20px;
 }
 
 
 /* Header */
 .control-section {
 	display:inline-block;
+	margin-right:20px;
 }
 .control-label, .control-element {
 	display: inline-block;
@@ -54,6 +55,16 @@ hr {
 	background-color:rgba(200,200,200,0.1);
 }
 
+#generation-start-bar {
+	width:0px;
+	height:4px;
+	background-color:aqua;
+	margin:0 auto;
+	transition: width 1s ease-in-out;
+	-webkit-transition: width 2s ease-in-out;
+}
+
+/* Evolve pattern */
 #pattern-container {
 	width:100%;
 }

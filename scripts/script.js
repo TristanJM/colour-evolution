@@ -1,18 +1,21 @@
 'use strict';
 
-let totalRows = 70;		// number
-let totalCols = 100;	// number
+let totalRows = 70;		// integer
+let totalCols = 100;	// integer
 let genDelay = 50;		// ms
 
 // Generates first row of cells
 function generatePattern() {
+	// Display loading bar
+	document.getElementById('generation-start-bar').style.width = '100%';
+	
 	let container = document.getElementById('pattern-container');
 
 	let row = document.createElement('div');
 	row.className = 'cell-row';
 	row.id = 'row1';
 	
-	// Create Row 1
+	// Create First Generation (Row 1)
 	for (let i=1; i<=totalCols; i++) {
 		let cell = document.createElement('div');
 		cell.className = 'cell';
@@ -20,15 +23,14 @@ function generatePattern() {
 		let colourType = document.getElementById('sel-colourPalette').value;
 		cell.style.backgroundColor = randomColour(colourType);
 		
-		cell.id = 'row1-col' + i;
-		
+		cell.id = 'row1-col' + i;		
 		row.appendChild(cell);
 	}
 	container.innerHTML = '';
 	container.appendChild(row);
 	
 	// Generate the first row of children
-	generateNewRow(2, container);	
+	setTimeout(function() { generateNewRow(2, container) },2000);
 }
 
 // Return a random RGB colour
@@ -41,7 +43,7 @@ function randomColour(type) {
 		
 		if (state === 0) return 'rgb(255,255,255)';
 		else return 'rgb(0,0,0)';
-	}
+	} 
 	else if (type === 'primary') {
 		let state = Math.floor(Math.random() * 3) + 1;
 		

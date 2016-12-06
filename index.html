@@ -12,14 +12,14 @@
 		<div id='tagline'><b>colour-evolution</b> &nbsp;&nbsp; each child inherits the colour of the 3 parents above</div>
 		<br>
 
-		<!--	Control Panel	-->
+		<!-- Control Panel -->
 		<div class='control-panel'>
 			<div class='control-section'>
 				<div class='control-label'>Colour:</div>
 				<div class='control-element'>
 					<select id='sel-colourPalette'>
-						<option value='all'>All RGB</option>
 						<option value='primary'>Primary</option>
+						<option value='all'>All RGB</option>
 						<option value='mono'>Black & White</option>
 					</select>
 				</div>
@@ -28,11 +28,12 @@
 		
 		<hr>
 		
-		<!--  Main Content  -->
+		<!-- Main Content -->
 		<br>
 		<div id='btn-generate' onclick='javascript:generatePattern()'>Evolve</div>
 		<br>
 		
+		<div id='generation-start-bar'></div>
 		<div id='pattern-container'></div>
 	</body>
 </html>
