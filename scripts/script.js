@@ -30,7 +30,7 @@ function generatePattern() {
 	container.appendChild(row);
 	
 	// Generate the first row of children
-	setTimeout(function() { generateNewRow(2, container) },2000);
+	setTimeout(function() { generateNewRow(2, container) }, 1000);
 }
 
 // Return a random RGB colour
