@@ -4,30 +4,60 @@ let totalRows = 70;		// integer
 let totalCols = 100;	// integer
 let genDelay = 50;		// ms
 
-// Generates first row of cells
+// Begin the evolve pattern generation
 function generatePattern() {	
 	let container = document.getElementById('pattern-container');
+	container.innerHTML = '';
+	
+	// Generate first row
+	generateFirstRow(container);
+	animateFirstRow();
+	
+	// Generate the children
+	var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*5;
+	setTimeout(function() { generateNewRow(2, container) }, startEvolutionDelay);
+}
 
+// Generate the first row of cells
+function generateFirstRow(container) {
 	let row = document.createElement('div');
 	row.className = 'cell-row';
 	row.id = 'row1';
 	
-	// Create First Generation (Row 1)
+	let colourType = document.getElementById('sel-colourPalette').value;
+
 	for (let i=1; i<=totalCols; i++) {
 		let cell = document.createElement('div');
-		cell.className = 'cell';
+		cell.className = 'cell parent-cell';
 		
-		let colourType = document.getElementById('sel-colourPalette').value;
 		cell.style.backgroundColor = randomColour(colourType);
 		
-		cell.id = 'row1-col' + i;		
+		cell.id = 'row1-col' + i;
 		row.appendChild(cell);
 	}
-	container.innerHTML = '';
-	container.appendChild(row);
 	
-	// Generate the first row of children
-	setTimeout(function() { generateNewRow(2, container) }, 1000);
+	container.appendChild(row);
+}
+
+// Animate the first generation of cells
+function animateFirstRow() {
+	let mid = Math.ceil(totalCols/2);
+	let oddCols = (totalCols % 2) !== 0;
+	animateMiddleOut(mid, oddCols, true);
+}
+
+// Recursively animate from the middle outwards
+function animateMiddleOut(colNum, oddCols, firstCell) {
+	let cellLeftId = 'row1-col'+colNum;
+	let cellRightId = 'row1-col'+((totalCols-colNum)+1);
+
+	// If it is NOT (odd cols AND first)
+	// Because odd && first should start by showing only the 1 (middle) cell
+	if (!(oddCols && firstCell)) document.getElementById(cellRightId).style.display = 'block';
+	
+	document.getElementById(cellLeftId).style.display = 'block';
+	
+	if (colNum > 1) setTimeout(() => animateMiddleOut(colNum-1, oddCols, false), genDelay/2);
 }
 
 // Return a random RGB colour

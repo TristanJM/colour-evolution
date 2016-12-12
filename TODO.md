@@ -1,5 +1,8 @@
 ## Colour Evolution TODO
 
+### Bugs
+- [ ] Re-clicking evolve should cancel first row animation load (setTimeout for showing cells)
+
 ### UI
 - [ ] Ensure initial generation is smoothly inserted onto page
 - [ ] Update UI to allow diagram configuration - such as cell width and generations

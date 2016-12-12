@@ -76,6 +76,9 @@ hr {
 	width:1%;
 	height:10px;
 }
+.parent-cell {
+	display:none;
+}
 
 .control-panel {
 	margin:10px 0 20px 0;
