@@ -69,12 +69,12 @@ hr {
 	width:100%;
 }
 .cell-row {
-	height:10px;
+	display:flex;
+	justify-content:center;
 }
 .cell {
 	width:1%;
 	height:10px;
-	display:inline-block;
 }
 
 .control-panel {

@@ -5,10 +5,7 @@ let totalCols = 100;	// integer
 let genDelay = 50;		// ms
 
 // Generates first row of cells
-function generatePattern() {
-	// Display loading bar
-	document.getElementById('generation-start-bar').style.width = '100%';
-	
+function generatePattern() {	
 	let container = document.getElementById('pattern-container');
 
 	let row = document.createElement('div');
@@ -43,7 +40,7 @@ function randomColour(type) {
 		
 		if (state === 0) return 'rgb(255,255,255)';
 		else return 'rgb(0,0,0)';
-	} 
+	}
 	else if (type === 'primary') {
 		let state = Math.floor(Math.random() * 3) + 1;
 		
