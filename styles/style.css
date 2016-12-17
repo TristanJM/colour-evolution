@@ -76,10 +76,26 @@ hr {
 	width:1%;
 	height:10px;
 }
-.parent-cell {
-	display:none;
+.firstRow-cell {
+	opacity:0;
+	animation:load 0.5s ease-in-out;
+	animation-fill-mode: forwards;
 }
 
 .control-panel {
 	margin:10px 0 20px 0;
+}
+
+@keyframes load {
+	0% {
+		opacity: 0;
+		transform: translateY(-130px);
+	}
+	40% {
+		opacity: 0.1;
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

@@ -11,10 +11,9 @@ function generatePattern() {
 	
 	// Generate first row
 	generateFirstRow(container);
-	animateFirstRow();
 	
 	// Generate the children
-	var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*5;
+	var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*10;
 	setTimeout(function() { generateNewRow(2, container) }, startEvolutionDelay);
 }
 
@@ -25,52 +24,42 @@ function generateFirstRow(container) {
 	row.id = 'row1';
 	
 	let colourType = document.getElementById('sel-colourPalette').value;
+	// variables to calculate animation properties
+	let middleCell = Math.ceil(totalCols/2);
+	let oddCols = (totalCols % 2) !== 0;
 
 	for (let i=1; i<=totalCols; i++) {
 		let cell = document.createElement('div');
-		cell.className = 'cell parent-cell';
-		
-		cell.style.backgroundColor = randomColour(colourType);
-		
+		cell.className = 'cell firstRow-cell';
 		cell.id = 'row1-col' + i;
+		
+		cell.style.backgroundColor = randomColour(colourType); // Assign cell colour
+		cell.style['animation-delay'] = animateFirstRow(i-1, middleCell, oddCols); // Assign cell animation-delay
+		
 		row.appendChild(cell);
 	}
 	
 	container.appendChild(row);
 }
 
-// Animate the first generation of cells
-function animateFirstRow() {
-	let mid = Math.ceil(totalCols/2);
-	let oddCols = (totalCols % 2) !== 0;
-	animateMiddleOut(mid, oddCols, true);
-}
-
-// Recursively animate from the middle outwards
-function animateMiddleOut(colNum, oddCols, firstCell) {
-	let cellLeftId = 'row1-col'+colNum;
-	let cellRightId = 'row1-col'+((totalCols-colNum)+1);
-
-	// If it is NOT (odd cols AND first)
-	// Because odd && first should start by showing only the 1 (middle) cell
-	if (!(oddCols && firstCell)) document.getElementById(cellRightId).style.display = 'block';
+// Assigns the cell an appropriate animation-delay value to display as a 'middle out' animation
+function animateFirstRow(colNum, middleCell, oddCols) {
+	let evenOffset = oddCols ? 0 : -1;	// even cols in total means an extra middle cell, so requires extra increment
 	
-	document.getElementById(cellLeftId).style.display = 'block';
-	
-	if (colNum > 1) setTimeout(() => animateMiddleOut(colNum-1, oddCols, false), genDelay/2);
+	if (colNum < middleCell) return ((totalCols - middleCell+evenOffset) - colNum)*genDelay/2 + 'ms';
+	else return (middleCell - (totalCols - colNum))*genDelay/2 + 'ms';
 }
 
 // Return a random RGB colour
-// type == mono (for black and white)
-// type == primary (for either R, G, B primary colours)
-// type == all (completely random colour)
 function randomColour(type) {
+	// Type: mono (for black and white)
 	if (type === 'mono') {
 		let state = Math.floor(Math.random() * 2);
 		
 		if (state === 0) return 'rgb(255,255,255)';
 		else return 'rgb(0,0,0)';
 	}
+	// Type: primary (for either R, G, B primary colours)
 	else if (type === 'primary') {
 		let state = Math.floor(Math.random() * 3) + 1;
 		
@@ -78,6 +67,7 @@ function randomColour(type) {
 		else if (state === 2) return 'rgb(0,255,0)';
 		else return 'rgb(0,0,255)';
 	}
+	// Type: all (completely random colour)
 	else if (type === 'all') {
 		let red = Math.floor(Math.random() * 256);
 		let green = Math.floor(Math.random() * 256);
