@@ -4,7 +4,8 @@
 - [ ] Re-clicking evolve should cancel first row animation load (setTimeout for showing cells)
 
 ### UI
-- [ ] Ensure initial generation is smoothly inserted onto page
+- [x] Ensure initial generation is smoothly inserted onto page
+- [ ] Each new row generated should smoothly slide down from parent
 - [ ] Update UI to allow diagram configuration - such as cell width and generations
 - [ ] Hover over a cell to display RGB colour value
 - [ ] Indicator to illustrate and describe mutation event

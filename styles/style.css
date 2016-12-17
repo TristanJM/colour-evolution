@@ -78,7 +78,7 @@ hr {
 }
 .firstRow-cell {
 	opacity:0;
-	animation:load 0.5s ease-in-out;
+	animation:load 0.4s ease-in-out;
 	animation-fill-mode: forwards;
 }
 
@@ -89,10 +89,10 @@ hr {
 @keyframes load {
 	0% {
 		opacity: 0;
-		transform: translateY(-130px);
+		transform: translateY(-200px);
 	}
-	40% {
-		opacity: 0.1;
+	65% {
+		opacity: 0;
 	}
 	100% {
 		opacity: 1;
