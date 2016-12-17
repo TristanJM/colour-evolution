@@ -1,20 +1,27 @@
 'use strict';
 
-let totalRows = 70;		// integer
+let totalRows = 60;		// integer
 let totalCols = 100;	// integer
 let genDelay = 50;		// ms
+let generationComplete = true;
 
 // Begin the evolve pattern generation
-function generatePattern() {	
-	let container = document.getElementById('pattern-container');
-	container.innerHTML = '';
-	
-	// Generate first row
-	generateFirstRow(container);
-	
-	// Generate the children
-	var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*10;
-	setTimeout(function() { generateNewRow(2, container) }, startEvolutionDelay);
+function generatePattern() {
+	if (generationComplete) {
+		let container = document.getElementById('pattern-container');
+		container.innerHTML = '';
+		generationComplete = false;
+		
+		// Generate first row
+		generateFirstRow(container);
+
+		// Generate the children
+		var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*10;
+		setTimeout(function() { generateNewRow(2, container) }, startEvolutionDelay);
+	}
+	else {
+		console.log('wait for generation to be completed');
+	}
 }
 
 // Generate the first row of cells
@@ -123,6 +130,7 @@ function generateNewRow(rowNum, container) {
 	
 	// Generate the next row after a delay
 	if (rowNum < totalRows) setTimeout(() => generateNewRow(rowNum+1, container), genDelay);
+	else generationComplete = true;
 }
 
 // Get the RGB values of a cell

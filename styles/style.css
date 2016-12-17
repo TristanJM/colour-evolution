@@ -1,4 +1,4 @@
-/* GENERIC CSS */
+/* GLOBAL STYLING */
 body {
   padding: 50px;
   font:17px 'Maven Pro', 'Lucida Grande', Helvetica, Arial, sans-serif;
@@ -13,16 +13,18 @@ hr {
 	font-size:20px;
 }
 
-
-/* Header */
+/* HEADER */
 .control-section {
 	display:inline-block;
 	margin-right:20px;
 }
+.control-panel {
+	margin:10px 0 20px 0;
+}
 .control-label, .control-element {
 	display: inline-block;
 }
-
+/* Colour Palette Select */
 #sel-colourPalette {
 	border:0;
 	appearance:none;
@@ -38,7 +40,7 @@ hr {
 #sel-colourPalette:focus {
 	outline:none;
 }
-
+/* Evolve button */
 #btn-generate {
 	width:150px;
 	padding:15px;
@@ -55,16 +57,7 @@ hr {
 	background-color:rgba(200,200,200,0.1);
 }
 
-#generation-start-bar {
-	width:0px;
-	height:4px;
-	background-color:aqua;
-	margin:0 auto;
-	transition: width 1s ease-in-out;
-	-webkit-transition: width 2s ease-in-out;
-}
-
-/* Evolve pattern */
+/* GENERATED PATTERN */
 #pattern-container {
 	width:100%;
 }
@@ -82,10 +75,7 @@ hr {
 	animation-fill-mode: forwards;
 }
 
-.control-panel {
-	margin:10px 0 20px 0;
-}
-
+/* Load first row of cells */
 @keyframes load {
 	0% {
 		opacity: 0;
