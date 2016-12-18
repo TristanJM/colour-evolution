@@ -14,6 +14,7 @@
 ### Evolution Functionality
 - [ ] Chance of mutations occurring
 - [ ] Option for two-parent generation
+- [ ] Prevent CPU-bound JS loops to improve user IO experience when cells are evolving
 - [ ] Should each cell be an accessor function or an object or class?
 
 ### Misc
