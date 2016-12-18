@@ -24,8 +24,8 @@ hr {
 .control-label, .control-element {
 	display: inline-block;
 }
-/* Colour Palette Select */
-#sel-colourPalette {
+/* Coontrol Panel Selects */
+.control-selectElement {
 	border:0;
 	appearance:none;
 	-o-appearance:none;
@@ -37,7 +37,7 @@ hr {
 	border-radius:0;
 	border-bottom:2px solid aqua;
 }
-#sel-colourPalette:focus {
+.control-selectElement:focus {
 	outline:none;
 }
 /* Evolve button */
