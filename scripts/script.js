@@ -12,6 +12,10 @@ function generatePattern() {
 		container.innerHTML = '';
 		generationComplete = false;
 		
+		// Set number of generations from UI
+		let generations = parseInt(document.getElementById('sel-numGenerations').value);
+		if (generations >= 1 && generations <= 1000) totalRows = generations;
+		
 		// Generate first row
 		generateFirstRow(container);
 
