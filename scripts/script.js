@@ -3,29 +3,31 @@
 let totalRows = 60;		// integer
 let totalCols = 100;	// integer
 let genDelay = 50;		// ms
-let generationComplete = true;
+let generationInProgress = false;
 
-// Begin the evolve pattern generation
+// Click handler for Evolve button
 function generatePattern() {
-	if (generationComplete) {
-		let container = document.getElementById('pattern-container');
-		container.innerHTML = '';
-		generationComplete = false;
-		
-		// Set number of generations from UI
-		let generations = parseInt(document.getElementById('sel-numGenerations').value);
-		if (generations >= 1 && generations <= 1000) totalRows = generations;
-		
-		// Generate first row
-		generateFirstRow(container);
+	if (!generationInProgress) {
+		generationInProgress = true;
+		initiateGeneration();	
+	}
+}
 
-		// Generate the children
-		var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*10;
-		setTimeout(function() { generateNewRow(2, container) }, startEvolutionDelay);
-	}
-	else {
-		console.log('wait for generation to be completed');
-	}
+// Initiates the pattern generation
+function initiateGeneration() {
+	let container = document.getElementById('pattern-container');
+	container.innerHTML = '';
+		
+	// Set number of generations
+	let generations = parseInt(document.getElementById('sel-numGenerations').value);
+	if (generations >= 1 && generations <= 1000) totalRows = generations;
+		
+	// Generate first row
+	generateFirstRow(container);
+
+	// Generate the children
+	var startEvolutionDelay = (genDelay/2)*(totalCols/2) + genDelay*10;
+	setTimeout(() => generateNewRow(2, container), startEvolutionDelay);
 }
 
 // Generate the first row of cells
@@ -35,6 +37,7 @@ function generateFirstRow(container) {
 	row.id = 'row1';
 	
 	let colourType = document.getElementById('sel-colourPalette').value;
+	
 	// variables to calculate animation properties
 	let middleCell = Math.ceil(totalCols/2);
 	let oddCols = (totalCols % 2) !== 0;
@@ -48,8 +51,7 @@ function generateFirstRow(container) {
 		cell.style['animation-delay'] = animateFirstRow(i-1, middleCell, oddCols); // Assign cell animation-delay
 		
 		row.appendChild(cell);
-	}
-	
+	}	
 	container.appendChild(row);
 }
 
@@ -101,29 +103,24 @@ function generateNewRow(rowNum, container) {
 		let cell = document.createElement('div');
 		cell.className = 'cell';
 		
-		// Get parents
-		let parent1col = i-1;
+		// Get parent columns (with wrap)
+		let parent1col = (i == 1) ? totalCols : i-1;
 		let parent2col = i;
-		let parent3col = i+1;
-		if (i == 1) parent1col = totalCols;
-		if (i == totalCols) parent3col = 1;
+		let parent3col = (i == totalCols) ? 1 : i+1;
+	
+		let childRGB = [parent1col, parent2col, parent3col]
+			.map(column => document.getElementById('row'+(rowNum-1)+'-col'+column))	// get parent elements
+			.map(parent => getRGB(parent.style.backgroundColor))										// get parent background colours
+			.reduce((accumulator, parentRGB) => {																		// reduce to average RGB of all parents
+					return {
+						R: accumulator.R + (parentRGB.R/3),
+						G: accumulator.G + (parentRGB.G/3),
+						B: accumulator.B + (parentRGB.B/3)
+					}
+				}, {R:0, G:0, B:0});
 		
-		let parent1 = document.getElementById('row'+(rowNum-1)+'-col'+parent1col);
-		let parent2 = document.getElementById('row'+(rowNum-1)+'-col'+parent2col);
-		let parent3 = document.getElementById('row'+(rowNum-1)+'-col'+parent3col);
-		
-		// Get parents' background colours (RGB values)
-		let parent1_RGB = getRGB(parent1.style.backgroundColor);
-		let parent2_RGB = getRGB(parent2.style.backgroundColor);
-		let parent3_RGB = getRGB(parent3.style.backgroundColor);
-		
-		// average out parent colours (three-way child)
-		let child_R = Math.floor((parent1_RGB.R + parent2_RGB.R + parent3_RGB.R) / 3);
-		let child_G = Math.floor((parent1_RGB.G + parent2_RGB.G + parent3_RGB.G) / 3);
-		let child_B = Math.floor((parent1_RGB.B + parent2_RGB.B + parent3_RGB.B) / 3);
-
 		// set child cell properties
-		cell.style.backgroundColor = `rgb( ${child_R}, ${child_G}, ${child_B} )`;		
+		cell.style.backgroundColor = `rgb( ${Math.floor(childRGB.R)}, ${Math.floor(childRGB.G)}, ${Math.floor(childRGB.B)} )`;	
 		cell.id = 'row' + rowNum + '-col' + i;
 		
 		fragment.appendChild(cell);
@@ -134,7 +131,7 @@ function generateNewRow(rowNum, container) {
 	
 	// Generate the next row after a delay
 	if (rowNum < totalRows) setTimeout(() => generateNewRow(rowNum+1, container), genDelay);
-	else generationComplete = true;
+	else generationInProgress = false;
 }
 
 // Get the RGB values of a cell
