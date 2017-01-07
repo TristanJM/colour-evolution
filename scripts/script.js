@@ -67,27 +67,26 @@ function animateFirstRow(colNum, middleCell, oddCols) {
 function randomColour(type) {
 	// Type: mono (for black and white)
 	if (type === 'mono') {
-		let state = Math.floor(Math.random() * 2);
-		
+		let state = randNumber(1);
 		if (state === 0) return 'rgb(255,255,255)';
 		else return 'rgb(0,0,0)';
 	}
 	// Type: primary (for either R, G, B primary colours)
 	else if (type === 'primary') {
-		let state = Math.floor(Math.random() * 3) + 1;
-		
-		if (state === 1) return 'rgb(255,0,0)';
-		else if (state === 2) return 'rgb(0,255,0)';
+		let state = randNumber(2);
+		if (state === 0) return 'rgb(255,0,0)';
+		else if (state === 1) return 'rgb(0,255,0)';
 		else return 'rgb(0,0,255)';
 	}
 	// Type: all (completely random colour)
 	else if (type === 'all') {
-		let red = Math.floor(Math.random() * 256);
-		let green = Math.floor(Math.random() * 256);
-		let blue = Math.floor(Math.random() * 256);
-		
-		return `rgb( ${red}, ${green}, ${blue} )`;
+		return `rgb( ${randNumber(255)}, ${randNumber(255)}, ${randNumber(255)} )`;
 	}
+}
+
+// Returns random number 0 <= x <= max
+function randNumber(max) {
+	return Math.floor(Math.random() * (max+1));
 }
 
 // Generate a new child row
@@ -138,9 +137,9 @@ function generateNewRow(rowNum, container) {
 function getRGB(cssRgb) {
 	// Get in form { R, G, B }
 	cssRgb = cssRgb
-						.substring(cssRgb.indexOf('(')+1, cssRgb.indexOf(')'))
-						.split(', ')
-						.map(x => parseInt(x));
+		.substring(cssRgb.indexOf('(')+1, cssRgb.indexOf(')'))
+		.split(', ')
+		.map(x => parseInt(x));
 	
 	return { R : cssRgb[0], G : cssRgb[1], B : cssRgb[2] }
 }
