@@ -9,43 +9,50 @@
 	</head>
 	
 	<body>
-		<div id='tagline'><b>colour-evolution</b> &nbsp;&nbsp; each child inherits the colour of the 3 parents above</div>
-		<br>
+		<section id='hero'>
+			<header>
+				<div id='title'>Colour Evolution</div>
+				<div id='tagline'>Each child inherits the colour of the 3 parents above</div>
+			</header>
+		</section>
+		
+		
+		<section id='evolution-content'>
+			<!-- Header Container -->
+<!--			<div id='tagline'><b>Colour Evolution</b> &nbsp;&nbsp; each child inherits the colour of the 3 parents above</div>-->
+			<div class='control-panel'>
+				<!-- Colour Selector -->
+				<div class='control-section'>
+					<div class='control-label'>Colour:</div>
+					<div class='control-element'>
+						<select class='control-selectElement' id='sel-colourPalette'>
+							<option value='primary'>Primary</option>
+							<option value='all'>Full Spectrum</option>
+							<option value='mono'>Black & White</option>
+						</select>
+					</div>
+				</div>
+				<!-- Number of Generations Selector -->
+				<div class='control-section'>
+					<div class='control-label'>Generations:</div>
+					<div class='control-element'>
+						<select class='control-selectElement' id='sel-numGenerations'>
+							<option>60</option>
+							<option>80</option>
+							<option>100</option>
+						</select>
+					</div>
+				</div>
+			</div>	
 
-		<!-- Control Panel -->
-		<div class='control-panel'>
-			<!-- Colour Selector -->
-			<div class='control-section'>
-				<div class='control-label'>Colour:</div>
-				<div class='control-element'>
-					<select class='control-selectElement' id='sel-colourPalette'>
-						<option value='primary'>Primary</option>
-						<option value='all'>Full Spectrum</option>
-						<option value='mono'>Black & White</option>
-					</select>
-				</div>
-			</div>
-			<!-- Number of Generations Selector -->
-			<div class='control-section'>
-				<div class='control-label'>Generations:</div>
-				<div class='control-element'>
-					<select class='control-selectElement' id='sel-numGenerations'>
-						<option>60</option>
-						<option>80</option>
-						<option>100</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		
-		<hr>
-		
-		<!-- Main Content -->
-		<br>
-		<div id='btn-generate' onclick='javascript:generatePattern()'>Evolve</div>
-		<br>
-		
-		<!--<div id='generation-start-bar'></div>-->
-		<div id='pattern-container'></div>
+			<!-- Main Content -->
+			<br>
+			<div id='btn-generate' onclick='javascript:generatePattern()'>Evolve</div>
+			<br>
+
+			<!--<div id='generation-start-bar'></div>-->
+			<div id='pattern-container'></div>		
+		</section>
+
 	</body>
 </html>
