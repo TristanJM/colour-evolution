@@ -143,3 +143,18 @@ function getRGB(cssRgb) {
 	
 	return { R : cssRgb[0], G : cssRgb[1], B : cssRgb[2] }
 }
+
+
+
+//(function rotateBg() {
+//	var i = 0;
+//	let arr = [
+//		'url(./assets/citylights-edit1.jpg)',
+//		'url(./assets/citylights-edit2.jpg)'
+//	];
+//	setInterval(function() {
+//		document.getElementById('hero').style.backgroundImage = arr[i];
+//		i++;
+//		if (i == (arr.length)) i = 0;
+//	},2000);
+//})()
