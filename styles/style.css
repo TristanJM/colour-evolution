@@ -71,7 +71,7 @@ header #tagline {
 	transform:translateY(-100%);
 	margin:0 auto;
 	text-align:center;
-	transition:transform 0.3s ease-in;
+	transition:transform 0.3s ease-in-out;
 	
 	background-color:rgba(30,30,30,0.7);
 }

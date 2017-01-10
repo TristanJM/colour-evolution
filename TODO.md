@@ -5,7 +5,6 @@
 
 ### UI
 - [x] Ensure initial generation is smoothly inserted onto page
-- [ ] Animate 'Evolve' button to reflect generation is in progress
 - [ ] Each new row generated should smoothly slide down from parent
 - [ ] Update UI to allow diagram configuration - such as cell width and generations
 - [ ] Hover over a cell to display RGB colour value

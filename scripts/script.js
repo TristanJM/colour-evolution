@@ -143,3 +143,9 @@ function getRGB(cssRgb) {
 	
 	return { R : cssRgb[0], G : cssRgb[1], B : cssRgb[2] }
 }
+
+// Show/hide header after scrolling
+window.addEventListener('scroll', (event) => {
+	if (this.scrollY > 400) document.getElementById('control-panel').style.transform = 'translateY(0)';
+	else document.getElementById('control-panel').style.transform = 'translateY(-100%)';    
+}, false);
