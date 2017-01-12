@@ -146,6 +146,6 @@ function getRGB(cssRgb) {
 
 // Show/hide header after scrolling
 window.addEventListener('scroll', (event) => {
-	if (this.scrollY > (window.innerHeight/1.7)) document.getElementById('control-panel').style.transform = 'translateY(0)';
+	if (this.scrollY > (window.innerHeight*0.6)) document.getElementById('control-panel').style.transform = 'translateY(0)';
 	else document.getElementById('control-panel').style.transform = 'translateY(-100%)';    
 }, false);
