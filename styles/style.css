@@ -72,8 +72,8 @@ header #tagline {
 	margin:0 auto;
 	text-align:center;
 	transition:transform 0.3s ease-in-out;
-	
-	background-color:rgba(30,30,30,0.7);
+	z-index:1000;
+	background-color:#2e3f56;
 }
 .control-section {
 	display:inline-block;
@@ -103,7 +103,7 @@ header #tagline {
 
 /* GENERATED PATTERN */
 #pattern-container {
-	padding:50px;
+	padding:120px 60px;
 }
 .cell-row {
 	display:flex;
