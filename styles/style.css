@@ -74,15 +74,44 @@ header #tagline {
 	transition:transform 0.3s ease-in-out;
 	z-index:1000;
 	background-color:#2e3f56;
+	box-sizing:border-box;
+	padding-top:17px;
+}
+.control-section-container {
+	display:inline-block;
+	width:40%;
+}
+#control-section-container-left {
+	text-align:right;
+}
+#control-section-container-right {
+	text-align:left;
 }
 .control-section {
 	display:inline-block;
-	margin-right:20px;
+	margin:0 20px;
 	color:#fafafa;
+	position:relative;
+	top:25%;
 }
 .control-label, .control-element {
 	display: inline-block;
 }
+#button-evolve-small {
+	display:inline-block;
+	color:#fafafa;
+	width:150px;
+	margin:0 10px;
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	cursor:pointer;
+	background-color:rgba(0,0,0,0.15);
+	padding:7px 0;
+	border-radius:5px;
+}
+
 /* Control Panel Selects */
 .control-selectElement {
 	border:0;

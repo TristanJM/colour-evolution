@@ -5,6 +5,7 @@
 		<link rel='stylesheet' href='styles/style.css'>
 		<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
 
+		<script src='scripts/libs/jquery-3.1.1.min.js'></script>
 		<script src='scripts/script.js'></script>
 	</head>
 	
@@ -19,28 +20,37 @@
 		</section>
 		
 		<section id='control-panel'>
-			<!-- Colour Selector -->
-			<div class='control-section'>
-				<div class='control-label'>Colour:</div>
-				<div class='control-element'>
-					<select class='control-selectElement' id='sel-colourPalette'>
-						<option value='primary'>Primary</option>
-						<option value='all'>Full Spectrum</option>
-						<option value='mono'>Black & White</option>
-					</select>
+			<div class='control-section-container' id='control-section-container-left'>
+				<!-- Colour Selector -->
+				<div class='control-section'>
+					<div class='control-label'>Colour:</div>
+					<div class='control-element'>
+						<select class='control-selectElement' id='sel-colourPalette'>
+							<option value='primary'>Primary</option>
+							<option value='all'>Full Spectrum</option>
+							<option value='mono'>Black & White</option>
+						</select>
+					</div>
 				</div>
 			</div>
+			
+			<!-- Mini Evolve button -->		
+			<div id='button-evolve-small' onclick='generatePattern()'>Evolve</div>
+			
 			<!-- Number of Generations Selector -->
-			<div class='control-section'>
-				<div class='control-label'>Generations:</div>
-				<div class='control-element'>
-					<select class='control-selectElement' id='sel-numGenerations'>
-						<option>60</option>
-						<option>80</option>
-						<option>100</option>
-					</select>
+			<div class='control-section-container' id='control-section-container-right'>
+				<div class='control-section'>
+					<div class='control-label'>Generations:</div>
+					<div class='control-element'>
+						<select class='control-selectElement' id='sel-numGenerations'>
+							<option>60</option>
+							<option>80</option>
+							<option>100</option>
+						</select>
+					</div>
 				</div>
 			</div>
+
 		</section>
 			
 		<section id='evolution-content'>
