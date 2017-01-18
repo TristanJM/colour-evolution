@@ -7,6 +7,7 @@
 - [x] Ensure initial generation is smoothly inserted onto page
 - [x] Add slide down when Evolve button is clicked
 - [x] Add second evolve button into scroll header
+- [ ] Fix header elements being misplaced at small screen widths
 - [ ] Each new row generated should smoothly slide down from parent
 - [ ] Update UI to allow diagram configuration - such as cell width and generations
 - [ ] Hover over a cell to display RGB colour value
