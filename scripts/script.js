@@ -7,9 +7,7 @@ let generationInProgress = false;
 
 // Click handler for Evolve button
 function generatePattern() {
-	// animate
-	var elmnt = document.getElementById("pattern-container");
-	elmnt.scrollIntoView({block: "start", behavior: "smooth"});
+	$('html, body').animate({ 'scrollTop': window.innerHeight }, 600);
 	
 	if (!generationInProgress) {
 		generationInProgress = true;
