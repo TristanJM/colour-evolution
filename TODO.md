@@ -5,8 +5,8 @@
 
 ### UI
 - [x] Ensure initial generation is smoothly inserted onto page
-- [ ] Add slide down when Evolve button is clicked
-- [ ] Add second evolve button into scroll header
+- [x] Add slide down when Evolve button is clicked
+- [x] Add second evolve button into scroll header
 - [ ] Each new row generated should smoothly slide down from parent
 - [ ] Update UI to allow diagram configuration - such as cell width and generations
 - [ ] Hover over a cell to display RGB colour value
