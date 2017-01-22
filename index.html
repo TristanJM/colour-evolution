@@ -4,9 +4,6 @@
 		<title>Colour Evolution</title>
 		<link rel='stylesheet' href='styles/style.css'>
 		<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
-
-		<script src='scripts/libs/jquery-3.1.1.min.js'></script>
-		<script src='scripts/script.js'></script>
 	</head>
 	
 	<body>
@@ -16,7 +13,7 @@
 				<div id='tagline'>Each child inherits the colour of the 3 parents above</div>
 			</header>
 			
-			<div id='button-evolve' onclick='generatePattern()'>Evolve</div>		
+			<div id='button-evolve' class='btn-evolve'>Evolve</div>		
 		</section>
 		
 		<section id='control-panel'>
@@ -35,7 +32,7 @@
 			</div>
 			
 			<!-- Mini Evolve button -->		
-			<div id='button-evolve-small' onclick='generatePattern()'>Evolve</div>
+			<div id='button-evolve-small' class='btn-evolve'>Evolve</div>
 			
 			<!-- Number of Generations Selector -->
 			<div class='control-section-container' id='control-section-container-right'>
@@ -60,6 +57,9 @@
 			<!--<div id='generation-start-bar'></div>-->
 			<div id='pattern-container'></div>		
 		</section>
-
+		
+		<script src='scripts/libs/jquery-3.1.1.min.js'></script>
+<!--		<script src='scripts/script.js'></script>-->
+		<script src='bundle.js'></script>
 	</body>
 </html>

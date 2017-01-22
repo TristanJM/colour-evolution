@@ -5,6 +5,9 @@ let totalCols = 100;	// integer
 let genDelay = 50;		// ms
 let generationInProgress = false;
 
+let evolveButtons = document.querySelectorAll('.btn-evolve');
+for (let i=0; i<evolveButtons.length; i++) evolveButtons[i].addEventListener('click', generatePattern, false);
+
 // Click handler for Evolve button
 function generatePattern() {
 	$('html, body').animate({ 'scrollTop': window.innerHeight }, 600);
@@ -148,6 +151,6 @@ function getRGB(cssRgb) {
 
 // Show/hide header after scrolling
 window.addEventListener('scroll', (event) => {
-	if (this.scrollY > (window.innerHeight*0.6)) document.getElementById('control-panel').style.transform = 'translateY(0)';
+	if (window.scrollY > (window.innerHeight*0.6)) document.getElementById('control-panel').style.transform = 'translateY(0)';
 	else document.getElementById('control-panel').style.transform = 'translateY(-100%)';    
 }, false);
