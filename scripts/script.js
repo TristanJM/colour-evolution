@@ -1,3 +1,11 @@
+// Import dependencies
+import $ from './libs/jquery-3.1.1.min';
+import jQuery from './libs/jquery-3.1.1.min';
+
+// Export jQuery for other scripts to use
+window.$ = $;
+window.jQuery = jQuery;
+
 'use strict';
 
 let totalRows = 60;		// integer
