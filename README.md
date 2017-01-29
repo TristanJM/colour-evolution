@@ -9,15 +9,14 @@ A colour evolution diagram based on cellular automata. Built in JavaScript.
 You must have Node.js installed on your computer for npm - used to build the project bundle
 
 Install the node dependencies:
-```
+```bash
 npm install
 ```
 
 Build the site bundle:
+```bash
+npm run watch			# Creates the script bundle file and watches for changes in JavaScript source
 ```
-npm run watch
-```
-This will create the script bundle file and watch for changes in scripts
 
 Open the index.html file in any web browser
 
