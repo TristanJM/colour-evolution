@@ -6,8 +6,8 @@ module.exports = {
 		'bundle': './scripts/script.js',
 		'bundle.min': './scripts/script.js',
 	},
-  output: {
-    path: 'dist',
+	output: {
+		path: 'dist',
 			filename: '[name].js'
 	},
 	module: {

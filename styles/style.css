@@ -1,12 +1,12 @@
 /* GLOBAL STYLING */
 body {
 	margin:0;
-  font:17px 'Maven Pro', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font:17px 'Maven Pro', 'Lucida Grande', Helvetica, Arial, sans-serif;
 	color:#2b2b2b;
 	background-color:#fafafa;
 }
 a {
-  color: #00B7FF;
+	color: #00B7FF;
 }
 #hero {
 	width:100%;
@@ -31,9 +31,9 @@ header #title {
 	font-size:3.5em;
 	font-weight:700;
 	-webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	cursor:default;
 }
 header #tagline {
@@ -103,9 +103,9 @@ header #tagline {
 	width:150px;
 	margin:0 10px;
 	-webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	cursor:pointer;
 	background-color:rgba(0,0,0,0.15);
 	padding:7px 0;

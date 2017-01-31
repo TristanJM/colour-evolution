@@ -64,7 +64,7 @@ function generateFirstRow(container) {
 		cell.style['animation-delay'] = animateFirstRow(i-1, middleCell, oddCols); // Assign cell animation-delay
 		
 		row.appendChild(cell);
-	}	
+	}
 	container.appendChild(row);
 }
 
@@ -114,12 +114,12 @@ function generateNewRow(rowNum, container) {
 	for (let i=1; i<=totalCols; i++) {
 		let cell = document.createElement('div');
 		cell.className = 'cell';
-		
+
 		// Get parent columns (with wrap)
 		let parent1col = (i == 1) ? totalCols : i-1;
 		let parent2col = i;
 		let parent3col = (i == totalCols) ? 1 : i+1;
-	
+
 		let childRGB = [parent1col, parent2col, parent3col]
 			.map(column => document.getElementById('row'+(rowNum-1)+'-col'+column))	// get parent elements
 			.map(parent => getRGB(parent.style.backgroundColor))										// get parent background colours
@@ -130,17 +130,17 @@ function generateNewRow(rowNum, container) {
 						B: accumulator.B + (parentRGB.B/3)
 					}
 				}, {R:0, G:0, B:0});
-		
+
 		// set child cell properties
 		cell.style.backgroundColor = `rgb( ${Math.floor(childRGB.R)}, ${Math.floor(childRGB.G)}, ${Math.floor(childRGB.B)} )`;	
 		cell.id = 'row' + rowNum + '-col' + i;
 		
 		fragment.appendChild(cell);
 	}
-	
+
 	row.appendChild(fragment.cloneNode(true));
 	container.appendChild(row);
-	
+
 	// Generate the next row after a delay
 	if (rowNum < totalRows) setTimeout(() => generateNewRow(rowNum+1, container), genDelay);
 	else generationInProgress = false;
@@ -153,7 +153,7 @@ function getRGB(cssRgb) {
 		.substring(cssRgb.indexOf('(')+1, cssRgb.indexOf(')'))
 		.split(', ')
 		.map(x => parseInt(x));
-	
+
 	return { R : cssRgb[0], G : cssRgb[1], B : cssRgb[2] }
 }
 
