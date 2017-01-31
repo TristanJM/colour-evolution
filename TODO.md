@@ -20,5 +20,6 @@
 - [ ] Should each cell be an accessor function or an object or class?
 
 ### Misc
-- [ ] Use Babel to compile ES6 code to ensure compatibility across browsers
+- [x] Use Babel to compile ES6 javascript to ensure compatibility across browsers
+- [ ] Use WebPack and Babel for CSS bundling
 - [ ] Learn the git command line - including branches
