@@ -129,6 +129,9 @@ header #tagline {
 .control-selectElement:focus {
 	outline:none;
 }
+.control-selectElement option {
+	color:#2e3f56;
+}
 
 /* GENERATED PATTERN */
 #pattern-container {
