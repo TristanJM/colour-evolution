@@ -19,7 +19,7 @@ for (let i=0; i<evolveButtons.length; i++) evolveButtons[i].addEventListener('cl
 // Click handler for Evolve button
 function generatePattern() {
 	$('html, body').animate({ 'scrollTop': window.innerHeight }, 600);
-	
+
 	if (!generationInProgress) {
 		generationInProgress = true;
 		initiateGeneration();	
@@ -30,11 +30,11 @@ function generatePattern() {
 function initiateGeneration() {
 	let container = document.getElementById('pattern-container');
 	container.innerHTML = '';
-		
+
 	// Set number of generations
 	let generations = parseInt(document.getElementById('sel-numGenerations').value);
 	if (generations >= 1 && generations <= 1000) totalRows = generations;
-		
+
 	// Generate first row
 	generateFirstRow(container);
 
@@ -48,9 +48,9 @@ function generateFirstRow(container) {
 	let row = document.createElement('div');
 	row.className = 'cell-row';
 	row.id = 'row1';
-	
+
 	let colourType = document.getElementById('sel-colourPalette').value;
-	
+
 	// variables to calculate animation properties
 	let middleCell = Math.ceil(totalCols/2);
 	let oddCols = (totalCols % 2) !== 0;
@@ -59,10 +59,10 @@ function generateFirstRow(container) {
 		let cell = document.createElement('div');
 		cell.className = 'cell firstRow-cell';
 		cell.id = 'row1-col' + i;
-		
+
 		cell.style.backgroundColor = randomColour(colourType); // Assign cell colour
 		cell.style['animation-delay'] = animateFirstRow(i-1, middleCell, oddCols); // Assign cell animation-delay
-		
+
 		row.appendChild(cell);
 	}
 	container.appendChild(row);
@@ -71,7 +71,7 @@ function generateFirstRow(container) {
 // Assigns the cell an appropriate animation-delay value to display as a 'middle out' animation
 function animateFirstRow(colNum, middleCell, oddCols) {
 	let evenOffset = oddCols ? 0 : -1;	// even cols in total means an extra middle cell, so requires extra increment
-	
+
 	if (colNum < middleCell) return ((totalCols - middleCell+evenOffset) - colNum)*genDelay/2 + 'ms';
 	else return (middleCell - (totalCols - colNum))*genDelay/2 + 'ms';
 }
@@ -105,11 +105,11 @@ function randNumber(max) {
 // Generate a new child row
 function generateNewRow(rowNum, container) {
 	let fragment = document.createDocumentFragment();
-	
+
 	let row = document.createElement('div');
 	row.className = 'cell-row';
 	row.id = 'row'+rowNum;
-	
+
 	// Create Row
 	for (let i=1; i<=totalCols; i++) {
 		let cell = document.createElement('div');
@@ -121,20 +121,20 @@ function generateNewRow(rowNum, container) {
 		let parent3col = (i == totalCols) ? 1 : i+1;
 
 		let childRGB = [parent1col, parent2col, parent3col]
-			.map(column => document.getElementById('row'+(rowNum-1)+'-col'+column))	// get parent elements
-			.map(parent => getRGB(parent.style.backgroundColor))										// get parent background colours
-			.reduce((accumulator, parentRGB) => {																		// reduce to average RGB of all parents
-					return {
-						R: accumulator.R + (parentRGB.R/3),
-						G: accumulator.G + (parentRGB.G/3),
-						B: accumulator.B + (parentRGB.B/3)
-					}
-				}, {R:0, G:0, B:0});
+		.map(column => document.getElementById('row'+(rowNum-1)+'-col'+column))	// get parent elements
+		.map(parent => getRGB(parent.style.backgroundColor))										// get parent background colours
+		.reduce((accumulator, parentRGB) => {																		// reduce to average RGB of all parents
+			return {
+				R: accumulator.R + (parentRGB.R/3),
+				G: accumulator.G + (parentRGB.G/3),
+				B: accumulator.B + (parentRGB.B/3)
+			}
+		}, {R:0, G:0, B:0});
 
 		// set child cell properties
 		cell.style.backgroundColor = `rgb( ${Math.floor(childRGB.R)}, ${Math.floor(childRGB.G)}, ${Math.floor(childRGB.B)} )`;	
 		cell.id = 'row' + rowNum + '-col' + i;
-		
+
 		fragment.appendChild(cell);
 	}
 

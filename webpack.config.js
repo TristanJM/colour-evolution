@@ -2,13 +2,13 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: {
+	entry: {
 		'bundle': './scripts/script.js',
 		'bundle.min': './scripts/script.js',
 	},
 	output: {
 		path: 'dist',
-			filename: '[name].js'
+		filename: '[name].js'
 	},
 	module: {
 		loaders: [
